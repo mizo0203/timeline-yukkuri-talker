@@ -39,10 +39,16 @@ public class TwitterTimelineTalker {
       }
 
       final StringBuffer buffer = new StringBuffer();
-      buffer.append(status.getUser().getName());
-      buffer.append("さんから、");
-      buffer.append(status.getText());
-      System.out.println(buffer);
+
+      if (status.isRetweet()) {
+        Status retweetedStatus = status.getRetweetedStatus();
+        buffer.append(status.getUser().getName() + "さんがリツイート。");
+        buffer.append(retweetedStatus.getUser().getName() + "さんから、");
+        buffer.append(retweetedStatus.getText());
+      } else {
+        buffer.append(status.getUser().getName() + "さんから、");
+        buffer.append(status.getText());
+      }
 
       mTalker.talkAsync(UrlUtil.convURLEmpty(buffer).replaceAll("\n", "。"), mYukkuriVoice);
 
