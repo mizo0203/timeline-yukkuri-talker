@@ -1,6 +1,8 @@
 package com.mizo0203.twitter.timeline.talker;
 
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -31,6 +33,12 @@ public class TwitterTimelineTalker {
     mTwitterStream.user();
   }
 
+  private static String getUserNameWithoutContext(String name) {
+    Pattern p = Pattern.compile("([^@＠]+).+");
+    Matcher m = p.matcher(name);
+    return m.replaceFirst("$1");
+  }
+
   private class OnStatusEvent implements StatusListener {
 
     public void onStatus(final Status status) {
@@ -42,11 +50,11 @@ public class TwitterTimelineTalker {
 
       if (status.isRetweet()) {
         Status retweetedStatus = status.getRetweetedStatus();
-        buffer.append(status.getUser().getName() + "さんがリツイート。");
-        buffer.append(retweetedStatus.getUser().getName() + "さんから、");
+        buffer.append(getUserNameWithoutContext(status.getUser().getName()) + "さんがリツイート。");
+        buffer.append(getUserNameWithoutContext(retweetedStatus.getUser().getName()) + "さんから、");
         buffer.append(retweetedStatus.getText());
       } else {
-        buffer.append(status.getUser().getName() + "さんから、");
+        buffer.append(getUserNameWithoutContext(status.getUser().getName()) + "さんから、");
         buffer.append(status.getText());
       }
 
