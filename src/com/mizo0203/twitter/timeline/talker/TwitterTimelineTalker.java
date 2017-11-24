@@ -1,5 +1,6 @@
 package com.mizo0203.twitter.timeline.talker;
 
+import java.util.Locale;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -10,42 +11,47 @@ import twitter4j.conf.Configuration;
 
 public class TwitterTimelineTalker {
 
-  private boolean mVoice_f1 = true;
+  /**
+   * ISO 639 言語コード - 日本語 (ja)
+   */
+  public static final String LANG_JA = Locale.JAPAN.getLanguage();
+
+  private Talker.YukkuriVoice mYukkuriVoice = Talker.YukkuriVoice.REIMU;
   private final TwitterStream mTwitterStream;
   private final Talker mTalker;
 
   public TwitterTimelineTalker(Configuration configuration, Talker talker) {
     mTwitterStream = new TwitterStreamFactory(configuration).getInstance();
-    mTwitterStream.addListener(new MyStatusListener());
+    mTwitterStream.addListener(new OnStatusEvent());
     mTalker = talker;
   }
 
   public void start() {
+    // OnStatusEvent に Twitter タイムラインが通知される
     mTwitterStream.user();
   }
 
-  private class MyStatusListener implements StatusListener {
+  private class OnStatusEvent implements StatusListener {
 
     public void onStatus(final Status status) {
-      if (!"ja".equalsIgnoreCase(status.getLang())) {
+      if (!LANG_JA.equalsIgnoreCase(status.getLang())) {
         return;
       }
+
       final StringBuffer buffer = new StringBuffer();
       buffer.append(status.getUser().getName());
       buffer.append("さんから、");
       buffer.append(status.getText());
       System.out.println(buffer);
 
-      // System.out.println("@" + status.getUser().getScreenName() + " | "
-      // + status.getText() + " 【 https://twitter.com/" +
-      // status.getUser().getScreenName() + "/status/" + status.getId() +
-      // " 】");
-      // こんな感じでstatusについている名前とかを色々表示させるとさらに欲しい情報にたどり着けると思います
+      mTalker.talkAsync(UrlUtil.convURLEmpty(buffer).replaceAll("\n", "。"), mYukkuriVoice);
 
-
-      mTalker.talkAsync(UrlUtil.convURLEmpty(buffer).replaceAll("\n", "。"),
-          (mVoice_f1 ? Talker.YukkuriVoice.REIMU : Talker.YukkuriVoice.MARISA));
-      mVoice_f1 = !mVoice_f1;
+      // 読み上げは、霊夢と魔理沙が交互に行なう
+      if (mYukkuriVoice == Talker.YukkuriVoice.REIMU) {
+        mYukkuriVoice = Talker.YukkuriVoice.MARISA;
+      } else {
+        mYukkuriVoice = Talker.YukkuriVoice.REIMU;
+      }
 
     }
 

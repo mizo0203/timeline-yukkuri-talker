@@ -49,7 +49,15 @@ public class Talker {
   }
 
   public static enum YukkuriVoice {
+
+    /**
+     * ゆっくりボイス - 霊夢
+     */
     REIMU("f1"), //
+
+    /**
+     * ゆっくりボイス - 魔理沙
+     */
     MARISA("f2"), //
     ;
 
