@@ -53,7 +53,7 @@ Access level は Read and Write がデフォルトのようですが、本アプ
 ### TwitterTimelineTalker および音声合成アプリ「AquesTalk Pi」のダウンロード
 
 1. [AquesTalk Pi](https://www.a-quest.com/products/aquestalkpi.html) をダウンロード、および tgz ファイルを展開
-2. [TwitterTimelineTalker.jar v1.0](http://redmine.mizo0203.com/attachments/57/TwitterTimelineTalker.jar) をダウンロード
+2. [TwitterTimelineTalker.jar v1.1](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar) をダウンロード
 3. ダウンロードおよび展開したファイルを下記のように配置
 	* TwitterTimelineTalker.jar
 	* aquestalkpi/AquesTalkPi
