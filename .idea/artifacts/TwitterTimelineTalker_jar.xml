@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TwitterTimelineTalker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TwitterTimelineTalker_jar</output-path>
+    <root id="archive" name="TwitterTimelineTalker.jar">
+      <element id="module-output" name="TwitterTimelineTalker" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/twitter4j/twitter4j-core/4.0.6/twitter4j-core-4.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/twitter4j/twitter4j-stream/4.0.6/twitter4j-stream-4.0.6.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
