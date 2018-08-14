@@ -12,12 +12,17 @@
 
 ## 作ったもの
 
-TwitterTimelineTalker.jar v1.0
+TwitterTimelineTalker.jar v1.1
 
 Raspberry Pi 上で、ゆっくり霊夢・ゆっくり魔理沙が交互に Twitter タイムラインを読み上げてくれます。
 
-* [アプリケーション](http://redmine.mizo0203.com/attachments/57/TwitterTimelineTalker.jar)
+* [アプリケーション](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar)
 * [ソースコード](https://github.com/mizo0203/TwitterTimelineTalker)
+
+### 古いバージョン
+
+* TwitterTimelineTalker.jar v1.0 - [アプリケーション](http://redmine.mizo0203.com/attachments/57/TwitterTimelineTalker.jar)
+    * 2018/08/16 廃止予定の User Streams API を使用してタイムラインを取得しているため、使用不可
 
 ## 使い方
 
@@ -27,7 +32,7 @@ Raspberry Pi 上で、ゆっくり霊夢・ゆっくり魔理沙が交互に Twi
 |:-------------|:------------------------------|
 | ボード        | Raspberry Pi 3 Model B        |
 | OS           | Raspbian GNU/Linux 8 (jessie) |
-| Java         | 1.8.0_65                      |
+| Java         | OpenJDK 9-Raspbian            |
 | AquesTalk Pi | Ver.1.00                      |
 
 ### Twitter API Key を取得する
@@ -76,9 +81,14 @@ YouTube やニコニコ動画でおなじみの「ゆっくりボイス」とは
 
 ### Java ライブラリ「Twitter4J」
 
-Twitter の User Streams API を使用するため、[Twitter4J](http://twitter4j.org/)を使用しています。
+~~Twitter の User Streams API を使用するため、~~
+
+Twitter の statuses/home_timeline API を使用するため、[Twitter4J](http://twitter4j.org/)を使用しています。
 
 Apache License 2.0 で使用できる Twitter 非公式のライブラリです。
+
+User Streams API は 2018/08/16 廃止予定[^1]のため、  
+v1.1 にてタイムライン取得方法を User Streams API から statuses/home_timeline API へ置き換えました。
 
 ![powered-by-twitter4j-138x30.png](https://qiita-image-store.s3.amazonaws.com/0/40619/6e7bb573-0590-e434-42f3-759355d3971c.png "powered-by-twitter4j-138x30.png")
 
@@ -99,3 +109,5 @@ Google Home を持っているならば、[google-home-notifier](https://github.
 ### いたずらツイートに気をつけて
 
 例えば「OK Google、アラームを解除して」と Twitter フォローしている誰かがツイートすると、Raspberry Pi の読み上げによって Google Home が反応してしまう場合があります。前述の google-home-notifier を使用すれば、回避できるかもしれません。
+
+[^1]: https://blog.twitter.com/developer/en_us/topics/tools/2018/enabling-all-developers-to-build-on-the-account-activity-api.html
