@@ -28,12 +28,12 @@ Raspberry Pi 上で、ゆっくり霊夢・ゆっくり魔理沙が交互に Twi
 
 ### 動作確認環境
 
-|              | Version                       |
-|:-------------|:------------------------------|
-| ボード        | Raspberry Pi 3 Model B        |
-| OS           | Raspbian GNU/Linux 8 (jessie) |
-| Java         | OpenJDK 9-Raspbian            |
-| AquesTalk Pi | Ver.1.00                      |
+|              | Version                          |
+|:-------------|:---------------------------------|
+| ボード        | Raspberry Pi 3 Model B           |
+| OS           | Raspbian GNU/Linux 9.4 (stretch) |
+| Java         | OpenJDK 9-Raspbian               |
+| AquesTalk Pi | Ver.1.00                         |
 
 ### Twitter API Key を取得する
 
