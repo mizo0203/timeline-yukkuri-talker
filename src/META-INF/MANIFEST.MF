@@ -1,3 +1,5 @@
 Manifest-Version: 1.0
+Implementation-Title: TwitterTimelineTalker
+Implementation-Version: 1.1
 Main-Class: com.mizo0203.twitter.timeline.talker.Application
 
