@@ -1,3 +1,7 @@
+[Twitter タイムラインだけでなく Mastodon タイムラインの読み上げにも対応したバージョンがあります。](https://github.com/mizo0203/TimelineTalker)
+
+---
+
 # Raspberry Pi でゆっくり達に Twitter タイムラインを読み上げてもらう
 
 ## 背景・動機
