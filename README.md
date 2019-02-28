@@ -21,7 +21,7 @@ TwitterTimelineTalker.jar v1.1
 Raspberry Pi 上で、ゆっくり霊夢・ゆっくり魔理沙が交互に Twitter タイムラインを読み上げてくれます。
 
 * [アプリケーション](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar)
-* [ソースコード](https://github.com/mizo0203/TwitterTimelineTalker)
+* [ソースコード](https://github.com/mizo0203/timeline-yukkuri-talker)
 
 ### 古いバージョン
 
@@ -54,7 +54,7 @@ Access level は Read and Write がデフォルトのようですが、本アプ
 
 もし、Access Token の発行後に Access level を変更したのであれば、Access Token を Regenerate してください。
 
-### TwitterTimelineTalker および音声合成アプリ「AquesTalk Pi」のダウンロード
+### TimelineYukkuriTalker および音声合成アプリ「AquesTalk Pi」のダウンロード
 
 1. [AquesTalk Pi](https://www.a-quest.com/products/aquestalkpi.html) をダウンロード、および tgz ファイルを展開
 2. [TwitterTimelineTalker.jar v1.1](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar) をダウンロード
