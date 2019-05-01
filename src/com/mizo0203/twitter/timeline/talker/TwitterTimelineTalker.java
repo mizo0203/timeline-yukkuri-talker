@@ -25,8 +25,8 @@ public class TwitterTimelineTalker {
     mRequestHomeTimelineTimerTask = new RequestHomeTimelineTimerTask(twitter, talker);
   }
 
-  private static String getUserNameWithoutContext(String name) {
-    Pattern p = Pattern.compile("([^@＠]+).+");
+  static /* package */ String getUserNameWithoutContext(String name) {
+    Pattern p = Pattern.compile("([^@＠]+).*");
     Matcher m = p.matcher(name);
     return m.replaceFirst("$1");
   }
