@@ -16,11 +16,11 @@
 
 ## 作ったもの
 
-TwitterTimelineTalker.jar v1.1
+TimelineYukkuriTalker.jar
 
 Raspberry Pi 上で、ゆっくり霊夢・ゆっくり魔理沙が交互に Twitter タイムラインを読み上げてくれます。
 
-* [アプリケーション](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar)
+* [アプリケーション](https://mizo0203.com/projects/timeline-yukkuri-talker/files)
 * [ソースコード](https://github.com/mizo0203/timeline-yukkuri-talker)
 
 ### 古いバージョン
@@ -57,20 +57,20 @@ Access level は Read and Write がデフォルトのようですが、本アプ
 ### TimelineYukkuriTalker および音声合成アプリ「AquesTalk Pi」のダウンロード
 
 1. [AquesTalk Pi](https://www.a-quest.com/products/aquestalkpi.html) をダウンロード、および tgz ファイルを展開
-2. [TwitterTimelineTalker.jar v1.1](http://redmine.mizo0203.com/attachments/64/TwitterTimelineTalker.jar) をダウンロード
+2. [TimelineYukkuriTalker.jar](https://mizo0203.com/projects/timeline-yukkuri-talker/files) から最新バージョンをダウンロード
 3. ダウンロードおよび展開したファイルを下記のように配置
-	* TwitterTimelineTalker.jar
+	* TimelineYukkuriTalker.jar
 	* aquestalkpi/AquesTalkPi
 	* aquestalkpi/aq_dic
 
-### TwitterTimelineTalker.jar を起動
+### TimelineYukkuriTalker.jar を起動
 
 Raspberry Pi にスピーカーを接続して、下記コマンドを実行してください。（4 つの引数は、取得した Twitter API Key に置き換えてください）
 
 ゆっくり霊夢が『アプリケーションを起動しました』と発声します。その後、Twitter タイムラインに更新があれば、ゆっくり霊夢・ゆっくり魔理沙が交互にツイートを読み上げます。
 
 ```bash
-$ nohup java -jar TwitterTimelineTalker.jar <Consumer Key> <Consumer Secret> <Access Token> <Access Token Secret> &
+$ nohup java -jar TimelineYukkuriTalker.jar <Consumer Key> <Consumer Secret> <Access Token> <Access Token Secret> &
 ```
 
 ## 使用しているもの
